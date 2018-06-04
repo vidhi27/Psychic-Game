@@ -7,10 +7,12 @@ var losses = 0;
 var guesses = 9;
 var letters = [];
 
+window.alert("Welcome crazy people, are you ready to be a Psychic? How to play: Press the any given letters with lowercase, if your answer is equal to computer's guess then you are psychic and if it's not equal than better luck next time. Remember: you have 9 guesses only! Good luck!");
+
 //Press a key to make a guess (player) and compare to computer
 document.onkeyup = function (event) {
     var player = event.key.toLowerCase();
-    var computer = alphabet[Math.floor(Math.random()) * alphabet.length];
+    var computer = alphabet[Math.floor(Math.random() * alphabet.length)];
 
     //push guess to letter array
     letters.push(player);
@@ -18,8 +20,29 @@ document.onkeyup = function (event) {
     //determine the result of player vs computer
     if (player === computer && guesses > 0) {
         wins++;
-        alert("You've guesses correctly!");
+        alert("Good Job, you are a psychic!");
         guesses = 9;
         letters = [];
+
+    } else if (player !== computer && guesses > 0) {
+        guesses = guesses - 1;
+
+    } else if (guesses === 0) {
+        losses++;
+        alert("You are not a psychic, you lost!");
+        guesses = 9;    
+        letters = [];
     }
-}
+      console.log(letters)
+
+    //Varibles for HTML to keep a track of wins, losses & guesses
+    var html = 
+    "<h1>The Psychic Game</h1>" +
+    "<p>Can you guess what letter I am thinking of ?</p>" +
+    "<p>Wins: " + wins + "</p>" +
+    "<p>Losses: " + losses + "</p>" +
+    "<p>Remaining Guesses: " + guesses + "</p>" +
+    "<p>Guesses used: " + letters + "</p>";
+
+    document.querySelector("#game").innerHTML = html;
+} 
