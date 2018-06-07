@@ -7,29 +7,31 @@ var losses = 0;
 var guesses = 9;
 var letters = [];
 var player = null;
+var sound = document.getElementById('sound');
 
-window.alert("Welcome crazy people, are you ready to be a Psychic? How to play: Press the any given letters with lowercase, if your answer is equal to computer's guess then you are psychic and if it's not equal than better luck next time. Remember: you have 9 guesses only! Good luck!");
+window.alert("Welcome crazy people, are you ready to be a Psychic? How to play: Press the any letters from a-z with lowercase, if your answer is equal to computer's guess then you are psychic and if it's not equal than better luck next time. Remember: you have 9 guesses only! Good luck!");
 
 //Press a key to make a guess (player) and compare to computer
 document.onkeyup = function (event) {
-    var player = event.key.toLowerCase();
+    player = event.key.toLowerCase();
    // String.fromCharCode(event.keyCode).toLowerCase();
     
     var computer = alphabet[Math.floor(Math.random() * alphabet.length)];
 
     //push guess to letter array
+    if (!(player >= 0)){
     letters.push(player);
-   
+    }
     //determine the result of player vs computer
-    // if (event.keyCode < 65 || event.keyCode > 90) {
-    //    alert("invalid entry");
-
     if (player === computer && guesses > 0) {
-        wins++;
+        wins++; 
         alert("Good Job, you are a psychic!");
         guesses = 9;
         letters = [];
 
+    } else if(player >= 0){
+        alert('Oops! Invalid Entry');
+    
     } else if (player !== computer && guesses > 0) {
         guesses = guesses - 1;
 
