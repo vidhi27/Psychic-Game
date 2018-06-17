@@ -8,3 +8,4 @@
 <br>Lastly, to restart the game you won/t have to reload the page, the new will begin as soon as you are out of nine tries.
 <br>Good luck!</p>
 
+Click this link to play the game: https://vidhi27.github.io/Psychic-Game/
