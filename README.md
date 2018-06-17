@@ -7,4 +7,4 @@
 <br>If win or lose, the window alert will pop up to inform you.
 <br>Lastly, to restart the game you won/t have to reload the page, the new will begin as soon as you are out of nine tries.
 <br>Good luck!</p>
-<strong>Note: For some sound effects open the game in IE (Explorer). Enjoy!</strong>
+
